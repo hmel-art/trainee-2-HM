@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Minimalista</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 40px;
+                background-color: #fff;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu a {
+                margin: 10px 0;
+            }
+        }
+
+        /* Corpo */
+        .corpo {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .content-item {
+            margin: 40px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .content-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-item img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .content-item h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .content-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Galeria */
+        .galeria {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeInGallery 1s ease-in forwards;
+        }
+
+        .galeria img:nth-child(1) { animation-delay: 0.2s; }
+        .galeria img:nth-child(2) { animation-delay: 0.4s; }
+        .galeria img:nth-child(3) { animation-delay: 0.6s; }
+        .galeria img:nth-child(4) { animation-delay: 0.8s; }
+        .galeria img:nth-child(5) { animation-delay: 1s; }
+        .galeria img:nth-child(6) { animation-delay: 1.2s; }
+
+        /* Contato */
+        .contato {
+            padding: 40px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .contato h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contato input,
+        .contato textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contato textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .contato button {
+            background-color: #25D366;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contato button:hover {
+            background-color: #1ebe57;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInGallery {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/50" alt="Logo">
+            <span class="site-name">Blablablabla</span>
+        </div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav-menu">
+            <a href="#corpo">Corpo</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Corpo -->
+    <section id="corpo" class="corpo">
+        <div class="content-item">
+            <img src="https://avesornamentaisjej.cdn.magazord.com.br/img/2024/03/produto/572/101-papagaio-do-mangue-2.png?ims=600x600" alt="Imagem 1">
+            <h2>Papagaio do Mangue</h2>
+            <p>O papagaio-do-mangue (Amazona amazonica), também chamado de curica ou papagaio-d'asa-laranja, é uma ave da família Psittacidae, comum na América do Sul. Aqui vai um resumo conciso:
+
+Características: 31-35 cm, 298-470 g, plumagem verde com amarelo e azul na cabeça, asas laranja visíveis no voo. Bico cinza-amarelado. Sexos iguais (teste de DNA para distinguir).
+
+Habitat: Manguezais, florestas tropicais, várzeas e áreas urbanas. Presente da Colômbia ao sudeste do Brasil (exceto Sul), incluindo Amazônia, RJ, SP e nordeste.
+
+Comportamento: Vive em bandos pequenos (até 8), pernoita em grupos maiores. Alimenta-se de sementes, frutos (manga, açaí), flores e folhas. Monogâmico.
+
+Reprodução: Julho a dezembro, 2-4 ovos em ocos de árvores, incubação de 26-29 dias, filhotes saem após ~60 dias.
+
+Conservação: "Pouco preocupante" (IUCN), mas ameaçado por tráfico de animais.
+
+Curiosidade: Provavelmente o primeiro papagaio visto pelos portugueses no Brasil, usado na arte plumária indígena.</p>
+        </div>
+        <div class="content-item">
+            <img src="https://via.placeholder.com/300x200" alt="Imagem 2">
+            <h2>Título 2</h2>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="content-item">
+            <img src="https://via.placeholder.com/300x200" alt="Imagem 3">
+            <h2>Título 3</h2>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="galeria">
+        <img src="https://via.placeholder.com/200x150" alt="Foto 1">
+        <img src="https://via.placeholder.com/200x150" alt="Foto 2">
+        <img src="https://via.placeholder.com/200x150" alt="Foto 3">
+        <img src="https://via.placeholder.com/200x150" alt="Foto 4">
+        <img src="https://via.placeholder.com/200x150" alt="Foto 5">
+        <img src="https://via.placeholder.com/200x150" alt="Foto 6">
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato">
+        <h2>Entre em Contato</h2>
+        <input type="text" id="nome" placeholder="Seu Nome" required>
+        <textarea id="mensagem" placeholder="Sua Mensagem" required></textarea>
+        <button onclick="enviarMensagem()">Enviar via WhatsApp</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Heitor Melo</p>
+        <p>IAPE - Instituto Adventista Pernambucano de Ensino</p>
+        <p>BR 232, KM 91, CEP 55.695-000, Sairé, PE</p>
+    </footer>
+
+    <script>
+        // Menu sanduíche
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal para os textos do corpo
+        const contentItems = document.querySelectorAll('.content-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        contentItems.forEach(item => observer.observe(item));
+
+        // Função para enviar mensagem ao WhatsApp
+        function enviarMensagem() {
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            if (nome && mensagem) {
+                const texto = encodeURIComponent(`Olá, meu nome é ${nome}. ${mensagem}`);
+                const numero = '+5544999754318';
+                window.open(`https://wa.me/${numero}?text=${texto}`, '_blank');
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        }
+    </script>
+</body>
+</html>
