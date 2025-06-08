@@ -22,8 +22,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background-color: #ffeb10;
+            padding: 25px 30px;
+            background-color: #ffd900;
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
@@ -102,12 +102,12 @@
 
         /* Corpo */
         .corpo {
-            padding: 30px;
+            padding: 40px;
             text-align: center;
         }
 
         .content-item {
-            margin: 500px 0;
+            margin: 100px 50px;
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -121,8 +121,8 @@
         .content-item img {
             width: 700%;
             max-width: 800px;
-            height: 500;
-            margin-bottom: 200px;
+            height: 550px;
+            margin-bottom: 60px;
         }
 
         .content-item h2 {
@@ -139,18 +139,19 @@
 
         /* Galeria */
         .galeria {
-            padding: 40px;
+            padding: 100px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+            gap: 40px;
         }
 
         .galeria img {
             width: 100%;
-            height: 150px;
+            height:250px;
             object-fit: cover;
             opacity: 0;
             animation: fadeInGallery 1s ease-in forwards;
+            text-align: center;
         }
 
         .galeria img:nth-child(1) { animation-delay: 0.2s; }
@@ -159,6 +160,7 @@
         .galeria img:nth-child(4) { animation-delay: 0.8s; }
         .galeria img:nth-child(5) { animation-delay: 1s; }
         .galeria img:nth-child(6) { animation-delay: 1.2s; }
+         .galeria img:nth-child(7) { animation-delay: 1.4s; }
 
         /* Contato */
         .contato {
@@ -234,7 +236,7 @@
     <header>
         <div class="logo">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/LogotipoAdventista.svg/1200px-LogotipoAdventista.svg.png" alt="Logo">
-            <span class="site-name">CAPELANIA-IAPE</span>
+            <span class="site-name">CAP-IAPE</span>
         </div>
         <div class="menu-toggle">
             <span></span>
@@ -251,13 +253,7 @@
     <!-- Corpo -->
     <section id="corpo" class="corpo">
         <div class="content-item">
-            <img src="capelafoto1.jpg"alt="Capelania">
-            <h2>Capelania Escolar</h2>
-            <p>A capelania é onde ocorre ensinamentos e tarefas extracurriculares que promovem, o aprendizado de conhecimentos gerais, 
-                eventos e cultos especiais dedicados aos alunos. </p>
-        </div>
-        <div class="content-item">
-            <img src="foto7prrafael.jpg" alt="Imagem 2">
+            <img src="prrafael.jpg" alt="Foto do Pastor Rafael">
             <h2>Pr Rafael Bastos</h2>
             <p>Nosso lindo e perfeito Pastor
                 18 anos
@@ -265,16 +261,32 @@
                 Abençoado e guiado por Deus
             </p>
         </div>
+        <div class="content-item">
+            <img src="meritoacademico1.jpg"alt="Foto da quipe da capelania">
+            <h2>Capelania Escolar</h2>
+            <p>A capelania é onde ocorre ensinamentos e tarefas extracurriculares que promovem, o aprendizado de conhecimentos gerais, 
+                eventos e cultos especiais dedicados aos alunos.</p>
+        </div>
+        <div class="content-item">
+            <img src="equipecapelania1.jpeg"alt="Foto da quipe da capelania">
+            <h2>Equipe da Capelania.</h2>
+            <p>Por conta desse pessoal maravilhoso e dedicado, temos eventos e atividades bem feitas. </p>
+        </div>
     </section>
 
     <!-- Galeria -->
     <section id="galeria" class="galeria">
-        <img src="foto1.jpg" alt="Foto 1">
-        <img src="foto2.jpg" alt="Foto 2">
-        <img src="foto3.jpg" alt="Foto 3">
-        <img src="foto4.jpg" alt="Foto 4">
-        <img src="foto5.jpg" alt="Foto 5">
-        <img src="foto6.jpg" alt="Foto 6">
+        
+       
+        <img src="capelania1.jpg" alt="Foto 1">
+        <img src="capelania2.jpg" alt="Foto 2">
+        <img src="capelania3.jpg" alt="Foto 3">
+        <img src="capelania4.jpg" alt="Foto 4">
+        <img src="capelania5.jpg" alt="Foto 5">
+        <img src="capelania6.jpg" alt="Foto 6">
+        <img src="capelania7.jpg" alt="Foto 7">
+
+       
     </section>
 
     <!-- Contato -->
